@@ -1,58 +1,58 @@
-/**
- *
- * @param {number} n
- * @returns {boolean}
- */
-function isEven (n) {
+const firstInput = prompt( 'Please input your first number value' );
+const firstNumber = Number( firstInput );
 
-  return n % 2 === 0;
-}
+if (!isNaN( firstNumber )) {
 
-/**
- *
- * @param {number} a
- * @param {number} b
- * @param {number} c
- * @returns {null|number[]}
- */
-function sqrtEquation (a, b, c) {
+  const secondInput = prompt( 'Please input your second number value' );
+  const secondNumber = Number( secondInput );
+  if (!isNaN( secondNumber )) {
 
-  const d = b * b - 4 * a * c;
+    const operationMark = prompt( 'Please choose your operation (*, /, +, -)' );
+    let operationFunc;
+    switch (operationMark) {
+      case '+': {
+        operationFunc = sum;
+      }
+        break;
+      case '-': {
+        operationFunc = subtraction;
+      }
+        break;
+      case '*': {
+        operationFunc = multiple;
+      }
+        break;
+      case '/': {
+        operationFunc = division;
+      }
+        break;
+      default:
+        alert( 'Unknown option' );
+    }
 
-  if (d < 0) {
-    return null;
+    if (typeof operationFunc === 'function') {
+      alert( operationFunc( firstNumber, secondNumber ) );
+    }
+    /*
+     * YOUR CODE IS HERE!
+     * */
+
   }
 
-  const x1 = (-b + Math.sqrt( d )) / 2 * a;
-  const x2 = (-b - Math.sqrt( d )) / 2 * a;
-
-  return [x1, x2];
 }
 
-/**
- *
- * @param {number} a
- * @param {number} b
- * @returns {number} - min value
- */
-function getMinValue (a, b) {
-  if (a < b) {
-    return a;
-  } else {
-    return b;
-  }
+function sum(a, b) {
+  return a + b;
 }
 
-/**
- *
- * @param {number} a
- * @param {number} b
- * @returns {number} - max value
- */
-function getMaxValue (a, b) {
-  if (a > b) {
-    return a;
-  } else {
-    return b;
-  }
+function multiple(a, b) {
+  return a * b;
+}
+
+function subtraction(a, b) {
+  return a - b;
+}
+
+function division(a, b) {
+  return a / b;
 }
