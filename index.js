@@ -1,4 +1,16 @@
-const firstValue = Number( prompt( 'Please input first number' ) );
-const secondValue = Number( prompt( 'Please input second number' ) );
+let tryCount = 0;
+let isPasswordCorrect;
 
-alert( `${firstValue} + ${secondValue} = ${firstValue + secondValue}` );
+do {
+
+  isPasswordCorrect = prompt( 'Please input your password' ) === CORRECT_PASS;
+
+  if (isPasswordCorrect) {
+    break;
+  }
+
+} while (++tryCount < TRY_LIMIT);
+
+alert( `Password is ${isPasswordCorrect
+                      ? 'correct'
+                      : 'incorrect'}.` );
