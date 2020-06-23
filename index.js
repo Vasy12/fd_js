@@ -1,7 +1,4 @@
-let count = 0;
-console.log( count );
+const firstValue = Number( prompt( 'Please input first number' ) );
+const secondValue = Number( prompt( 'Please input second number' ) );
 
-const firstIncrement = ++count;
-const firstDecrement = --count;
-const secondIncrement = count++;
-const secondDecrement = count--;
+alert( `${firstValue} + ${secondValue} = ${firstValue + secondValue}` );
